@@ -256,9 +256,9 @@ footer p { margin-top: 18px; }
   .fan { height: 118vw; margin-top: 36px; }
   .phone { width: 46vw; }
   .scroll-hint { display: none; }
-  .nav .wrap { gap: 10px; } .nav .bti { font-size: 18px; }
-  .nav .links { gap: 0; font-size: 14px; } .nav .links a { padding: 7px 9px; } .nav .links a::after { left: 9px; right: 9px; }
-  .nav .lang { padding: 5px 9px; font-size: 12px; margin-left: 2px; }
+  .nav .wrap { gap: 6px; } .nav .bti { font-size: 17px; }
+  .nav .links { gap: 0; font-size: 14px; } .nav .links a { padding: 7px 7px; } .nav .links a::after { left: 7px; right: 7px; }
+  .nav .lang { padding: 5px 8px; font-size: 12px; margin-left: 2px; letter-spacing: .02em; }
   .lesson { padding: 12px; border-radius: 26px; margin-top: 32px; }
   .say { font-size: 16px; min-height: 120px; }
   .eki { width: 70px; }
