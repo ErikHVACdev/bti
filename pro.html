@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TermikAI · BTI Pro</title>
+<meta name="description" content="TermikAI: frío y calor, calculados en la visita.">
+<link rel="icon" href="img/robot.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="bti" aria-label="BTI Software"><b>BTI</b><i class="sw">Software</i></a>
+    <div class="links"><a href="education.html">Education</a><a href="pro.html" class="here">Pro</a><a href="filosofia.html">Filosofía</a></div>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+
+<main>
+<!-- 7 · BTI Pro: TermikAI -->
+<section class="pad dark" id="pro">
+  <div class="wrap">
+    <div class="center">
+      <img class="tk-logo rv" src="img/termikai-icono.svg" alt="TermikAI" style="margin:0 auto 22px">
+      <p class="eyebrow rv"><span class="bti" style="font-size:18px;color:#F5F5F7"><b>BTI</b><i class="pro">Pro</i></span></p>
+      <h2 class="h2 rv d1">TermikAI. <span class="grad-pro">Frío y calor, calculados en la visita.</span></h2>
+      <p class="sub rv d2">Tres pasos y sin hojas de cálculo. El instalador mete lo que ve y lo demás lo deduce la app.</p>
+    </div>
+  </div>
+</section>
+
+<!-- La escena 3D del tráiler, movida con el scroll (3d/escena.html en un iframe; main.js llama a render(t)) -->
+<section class="film dark" id="film" aria-label="TermikAI en 3D: el técnico calcula la carga de un piso">
+  <div class="stick">
+    <div class="screen"><iframe id="film-frame" title="Escena 3D de TermikAI" tabindex="-1"></iframe><p class="load">Cargando la escena 3D…</p></div>
+    <div class="caps">
+      <p class="fc" data-a="0" data-b="4.5"><small>Bilbao · septiembre · 18:40</small>31 °C en el salón.</p>
+      <p class="fc" data-a="4.5" data-b="7.6"><small>Llega el técnico</small>Abre TermikAI en la visita.</p>
+      <p class="fc" data-a="7.6" data-b="10.6"><small>Del plano</small>Las paredes, en 3D.</p>
+      <p class="fc" data-a="10.6" data-b="13.4"><small>Orientación</small>El sol de cada hora.</p>
+      <p class="fc" data-a="13.4" data-b="16.4"><small>Resultado</small>La carga de cada estancia.</p>
+      <p class="fc last" data-a="16.4" data-b="99"><small>BTI Pro</small>Dos minutos. Un informe claro.</p>
+    </div>
+    <p class="film-hint">Desliza para verlo</p>
+    <div class="film-bar" id="film-bar"></div>
+  </div>
+</section>
+
+<section class="pad dark">
+  <div class="wrap">
+    <div class="tksteps">
+      <div class="tks rv"><span class="k">PASO 1</span><h3>La obra</h3><p>Localidad, uso y año. Con el año deduce el aislamiento.</p><div class="peek"><img src="img/tk-inicio.jpg" alt=""></div></div>
+      <div class="tks rv d1"><span class="k">PASO 2</span><h3>Las estancias</h3><p>Metros y fachadas, o medidos sobre una foto del plano.</p><div class="peek"><img src="img/tk-estancias.jpg" alt=""></div></div>
+      <div class="tks rv d2"><span class="k">PASO 3</span><h3>El resultado</h3><p>Kilovatios, de dónde viene la carga y el PDF para el cliente.</p><div class="peek"><img src="img/tk-resultado1.jpg" alt=""></div></div>
+    </div>
+    <div class="nums">
+      <div class="num rv"><span class="n" data-count="27">0</span><b>Ciudades</b><small>Clima de cálculo de cada una</small></div>
+      <div class="num rv d1"><span class="n" data-count="8">0</span><b>Usos</b><small>De vivienda a restaurante</small></div>
+      <div class="num rv d2"><span class="n" data-count="102">0</span><b>Pruebas</b><small>Antes de cada cambio</small></div>
+      <div class="num rv d3"><span class="n">×2</span><b>Motores</b><small>TypeScript y Python, que se comprueban entre sí</small></div>
+    </div>
+    <div class="norms rv"><span>Método Carrier</span><span>RITE</span><span>CTE DB HE</span><span>CTE DB SI</span><span>Guías del IDAE</span></div>
+    <p class="disc rv">Es un predimensionado: no sustituye al proyecto firmado por un técnico competente cuando la normativa lo exige. La app lo dice en cada informe.</p>
+  </div>
+</section>
+<!-- Próximamente: otras apps de BTI Pro, sin fechas ni enlaces -->
+<section class="pad dark soon" id="pronto">
+  <div class="wrap center">
+    <p class="eyebrow rv">Próximamente en BTI Pro</p>
+    <h2 class="h2 rv d1">TermikAI es la primera. <span class="grad-edu">No la única.</span></h2>
+    <p class="sub rv d2">Más herramientas para instaladores, con el mismo rigor: normativa con fuente y resultados que se entienden.</p>
+  </div>
+  <div class="wrap">
+    <div class="prs">
+      <article class="pr rv"><svg viewBox="0 0 48 48"><rect x="7" y="9" width="34" height="30" rx="4"/><path d="M13 15h22v6H13v6h22v6H13"/></svg><span class="state">En pruebas</span><h3>Radia</h3><p>Suelo radiante: circuitos, caudales y planos, según la UNE-EN 1264, el RITE y el CTE.</p></article>
+      <article class="pr rv d1"><svg viewBox="0 0 48 48"><circle cx="35" cy="11" r="4"/><path d="M35 3v2M43 11h-2M40.7 5.3l-1.4 1.4"/><path d="M5 40 14 20h24l-9 20z"/><path d="M9.5 30h24M19 20l-4.5 20M28 20l-4.5 20"/></svg><span class="state">En desarrollo</span><h3>SolarRoof</h3><p>Fotovoltaica sobre el tejado: dónde caben los paneles, cuánto producen y cuánto se ahorra.</p></article>
+      <article class="pr rv d2"><svg viewBox="0 0 48 48"><path d="M24 5 41 14v20L24 43 7 34V14z"/><path d="M7 14l17 9 17-9M24 23v20"/></svg><span class="state">En diseño</span><h3>Traza</h3><p>Del plano al cálculo y al modelo 3D de la instalación, en un solo paso.</p></article>
+    </div>
+  </div>
+</section>
+<!-- Para llevar: la app, el vídeo y el informe en PDF, con sus QR -->
+<section class="pad grey" id="llevar">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Para llevar</p>
+      <h2 class="h2 rv d1">TermikAI, <span class="grad-edu">para llevar.</span></h2>
+      <p class="sub rv d2">Escanea con el móvil o pulsa para abrir.</p>
+    </div>
+    <div class="doc take rv">
+      <span class="bti"><b>BTI</b><i class="pro">Pro</i></span>
+      <div class="qrs three">
+        <a class="qr-card" href="https://erikhvacdev.github.io/termikai/" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/termikai/"></div><b>Prueba la app<small>Con el acceso que te den</small></b></a>
+        <a class="qr-card" href="https://erikhvacdev.github.io/termikai/video/" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/termikai/video/"></div><b>Mira el vídeo<small>1 minuto</small></b></a>
+        <a class="qr-card" href="https://erikhvacdev.github.io/bti/informes/termikai.pdf" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/bti/informes/termikai.pdf"></div><b>El informe<small>En PDF</small></b></a>
+      </div>
+      <a class="dl" href="informes/termikai.pdf" target="_blank" download><span><b>Descargar el informe de TermikAI</b><small>PDF</small></span><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="bti"><b>BTI</b><i class="sw">Software</i></span>
+  <p class="tag">Basque Tech Intelligence</p>
+  <p><b>Edgar Ruben Retamar</b> · 2.º DPITF · CIFP Repélega LHII</p>
+  <p><a class="mail" href="mailto:erik.repelega@gmail.com">erik.repelega@gmail.com</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTI Software · Portada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* Portada de la carpeta para el profesorado: la matriz BTI Software, su QR a la web piloto y las dos ramas.
+   A4 vertical; en impresión, colores lisos (el degradado de texto deja rayas en el PDF). */
+@page { size: A4; margin: 0; }
+:root { --ink: #1D1D1F; --soft: #6E6E73; --line: #D2D2D7; --grey: #F5F5F7; --petrol: #08516D; --petrol2: #2C7FA0; --blue: #0071E3; --indigo: #5E5CE6; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #E8E8ED; color: var(--ink); font-family: 'Inter', -apple-system, 'Segoe UI', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+.sheet { width: 210mm; height: 297mm; margin: 24px auto; background: #fff; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30mm 22mm 18mm; }
+.bti { display: inline-flex; align-items: baseline; gap: .26em; letter-spacing: -.045em; line-height: 1; white-space: nowrap; }
+.bti b { font-weight: 800; } .bti i { font-style: normal; font-weight: 300; letter-spacing: -.03em; }
+.sw { color: var(--petrol2); } .edu { color: var(--blue); } .pro { color: var(--petrol2); }
+.mark { font-size: 64px; }
+.tag { margin-top: 12px; font-size: 11.5px; letter-spacing: .36em; text-transform: uppercase; color: var(--soft); font-weight: 500; }
+.rule { width: 60px; height: 3px; background: var(--petrol2); border-radius: 2px; margin: 10mm 0 0; }
+h1 { margin: 8mm 0 0; font-size: 40px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; }
+h1 span { color: var(--blue); }
+.lead { margin-top: 5mm; font-size: 16px; color: var(--soft); max-width: 120mm; line-height: 1.45; }
+.qrbox { margin-top: 14mm; padding: 7mm; border-radius: 9mm; background: var(--grey); display: grid; justify-items: center; gap: 4mm; }
+#qr { width: 62mm; height: 62mm; background: #fff; border-radius: 5mm; padding: 4.5mm; }
+#qr img, #qr canvas { width: 100% !important; height: auto !important; display: block; }
+.qrbox b { font-size: 16px; } .qrbox small { display: block; font-size: 13px; color: var(--soft); margin-top: 1mm; font-weight: 400; }
+.branches { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; width: 100%; margin-top: auto; }
+.br { text-align: left; border-radius: 6mm; padding: 6mm; box-shadow: 0 0 0 .3mm var(--line) inset; }
+.br .bti { font-size: 22px; } .br p { margin: 3mm 0 0; font-size: 13px; color: var(--soft); line-height: 1.4; }
+.foot { margin-top: 8mm; width: 100%; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--soft); border-top: .3mm solid #E8E8ED; padding-top: 5mm; }
+.foot img { height: 24px; }
+@media print { html, body { background: #fff; } .sheet { margin: 0; box-shadow: none; } }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="mark"><span class="bti"><b>BTI</b><i class="sw">Software</i></span></div>
+  <p class="tag">Basque Tech Intelligence</p>
+  <div class="rule"></div>
+  <h1>Software para aprender.<br><span>Y software para trabajar.</span></h1>
+  <p class="lead">Las dos propuestas, sus informes, las apps para probar y los vídeos, en una sola web.</p>
+  <div class="qrbox">
+    <div id="qr"></div>
+    <b>Escanea con el móvil<small>erikhvacdev.github.io/bti</small></b>
+  </div>
+  <div class="branches">
+    <div class="br"><span class="bti"><b>BTI</b><i class="edu">Education</i></span><p>Una app de estudio para cada asignatura. Piloto: Fluidos, en el CIFP Repélega.</p></div>
+    <div class="br"><span class="bti"><b>BTI</b><i class="pro">Pro</i></span><p>TermikAI: la carga térmica de un local en dos minutos, en la visita.</p></div>
+  </div>
+  <div class="foot">
+    <span><b style="color:var(--ink)">Edgar Ruben Retamar</b> · 2.º DPITF · 24/11/2026</span>
+    <img src="img/logo-negro.png" alt="CIFP Repélega LHII">
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+try { new QRCode(document.getElementById('qr'), { text: 'https://erikhvacdev.github.io/bti/', width: 400, height: 400, colorDark: '#1D1D1F', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.M }); }
+catch (e) { document.getElementById('qr').textContent = 'https://erikhvacdev.github.io/bti/'; }
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTI Education</title>
+<meta name="description" content="BTI Education: una app de estudio por asignatura. Piloto en el CIFP Repélega.">
+<link rel="icon" href="img/robot.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="bti" aria-label="BTI Software"><b>BTI</b><i class="sw">Software</i></a>
+    <div class="links"><a href="education.html" class="here">Education</a><a href="pro.html">Pro</a><a href="filosofia.html">Filosofía</a></div>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+
+<main>
+<!-- 3 · BTI Education -->
+<section class="pad" id="education">
+  <div class="wrap center">
+    <p class="eyebrow rv"><span class="bti" style="font-size:18px;color:var(--ink)"><b>BTI</b><i class="edu">Education</i></span></p>
+    <h2 class="h2 rv d1">Una app por asignatura. <span class="grad-edu">Todas iguales por dentro.</span></h2>
+    <p class="sub rv d2">Asignatura, evaluación, tema y lecciones. Con la misma base sale cada asignatura nueva, y el alumnado siempre sabe dónde está.</p>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="stick">
+    <div class="wrap grid">
+      <div>
+        <div class="steps">
+          <div class="st on"><span class="k">APRENDE</span><h3>Eki lo explica <span class="grad-edu">paso a paso.</span></h3><ul><li>Dibujos que se animan</li><li>La voz de Eki</li><li>Apuntes y normativa, claros</li></ul></div>
+          <div class="st"><span class="k">PRACTICA</span><h3>Cada fallo, <span class="grad-edu">explicado.</span></h3><ul><li>Tests por lección</li><li>Cálculo guiado con pistas</li><li>Simulacro con nota</li></ul></div>
+          <div class="st"><span class="k">JUEGA</span><h3>Repasar <span class="grad-edu">también engancha.</span></h3><ul><li>Minijuegos del tema</li><li>Taller de averías</li><li>Récords y racha</li></ul></div>
+        </div>
+        <div class="dots" id="story-dots"><i class="on"></i><i></i><i></i></div>
+      </div>
+      <div class="stage">
+        <div class="phone" id="story-phone">
+          <img class="on" src="img/teoria.jpg" alt="Teoría">
+          <img src="img/test.jpg" alt="Test">
+          <img src="img/juego.jpg" alt="Minijuego">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Lección interactiva con Eki -->
+<section class="pad grey" id="eki">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Pruébalo aquí</p>
+      <h2 class="h2 rv d1">Una lección de Eki, <span class="grad-edu">en un minuto.</span></h2>
+      <p class="sub rv d2">¿Por qué no huele un desagüe? Pulsa Siguiente y Eki te lo enseña.</p>
+    </div>
+    <div class="lesson rv">
+      <div class="board" id="board">
+        <svg viewBox="0 0 520 340" role="img" aria-label="Lavabo, sifón y bajante">
+          <!-- Lavabo -->
+          <path class="basin" d="M52 46 H210 Q206 96 131 100 Q56 96 52 46 Z"/>
+          <path d="M44 46 H218" stroke="#C9CED6" stroke-width="6" stroke-linecap="round"/>
+          <text x="46" y="80" class="label" text-anchor="end">Lavabo</text>
+          <!-- Tubería: desagüe, sifón en U y ramal hasta la bajante -->
+          <path class="pipe-o" d="M131 100 V215 Q131 252 163 252 Q195 252 195 215 V196 H410"/>
+          <path class="pipe-i" d="M131 100 V215 Q131 252 163 252 Q195 252 195 215 V196 H410"/>
+          <!-- Agua del cierre -->
+          <path class="water" id="water" pathLength="1" d="M131 205 V215 Q131 252 163 252 Q195 252 195 215 V205"/>
+          <text x="40" y="262" class="label">Sifón</text>
+          <!-- Bajante -->
+          <rect x="408" y="14" width="40" height="320" rx="6" fill="#fff" stroke="#C9CED6" stroke-width="4"/>
+          <text x="458" y="30" class="label">Bajante</text>
+          <!-- Ventilación terciaria -->
+          <g class="vent" id="vent">
+            <path d="M260 196 V70 H408" fill="none" stroke="#C9CED6" stroke-width="20" stroke-linejoin="round"/>
+            <path d="M260 196 V70 H408" fill="none" stroke="#fff" stroke-width="13" stroke-linejoin="round"/>
+            <text x="272" y="60" class="label">Ventilación</text>
+            <g class="air"><circle r="4" fill="#9ED0F5"><animateMotion dur="2.4s" repeatCount="indefinite" path="M400 70 H260 V190"/></circle>
+            <circle r="4" fill="#9ED0F5"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M400 70 H260 V190"/></circle></g>
+          </g>
+          <!-- Gases de la red -->
+          <g id="gases"></g>
+          <g class="stop" id="stop"><circle cx="210" cy="172" r="13" fill="#1E9E5A"/><path d="M204 172 l4 4 l8 -9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g class="smell" id="smell">
+            <path d="M110 34 q-8 -8 0 -16 t0 -16 M131 34 q-8 -8 0 -16 t0 -16 M152 34 q-8 -8 0 -16 t0 -16" fill="none" stroke="#8C9A6B" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="confetti" id="confetti"></div>
+      </div>
+      <div class="coach">
+        <div class="eki-row">
+          <img class="eki" id="eki-img" src="img/robot.svg" alt="Eki, la mascota">
+          <div class="say" id="say" aria-live="polite"></div>
+        </div>
+        <div class="quiz" id="quiz" hidden></div>
+        <div class="ctrl">
+          <button class="btn sec" id="prev">Atrás</button>
+          <button class="btn" id="next">Siguiente</button>
+          <div class="ldots" id="ldots"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Cifras y demo en vivo -->
+<section class="pad">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Lo que ya funciona</p>
+      <h2 class="h2 rv d1">Un tema de muestra, <span class="grad-edu">listo para clase.</span></h2>
+      <p class="sub rv d2">Saneamiento, de Fluidos, según el CTE DB HS 5.</p>
+    </div>
+    <div class="nums">
+      <div class="num grey rv"><span class="n" data-count="16">0</span><b>Fichas</b><small>Animadas y con voz</small></div>
+      <div class="num grey rv d1"><span class="n" data-count="38">0</span><b>Preguntas</b><small>Cada fallo, explicado</small></div>
+      <div class="num grey rv d2"><span class="n" data-count="5">0</span><b>Lecciones</b><small>Con test y simulacro</small></div>
+      <div class="num grey rv d3"><span class="n" data-count="2">0</span><b>Idiomas</b><small>Castellano y euskera</small></div>
+    </div>
+    <div class="live">
+      <div>
+        <h3 class="h2 rv" style="font-size:clamp(28px,4vw,40px)">La app de verdad, <span class="grad-edu">aquí mismo.</span></h3>
+        <ul class="checks rv d1">
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Las lecciones interactivas, tal como las ve el alumnado</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Funciona sin conexión, sin servidor ni cuentas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Taller de averías, minijuegos y cálculo con pistas</li>
+        </ul>
+        <div class="branches rv d2" style="justify-content:flex-start">
+          <a class="pill solid" href="https://erikhvacdev.github.io/repelega-demo/" target="_blank" rel="noopener">Abrir en pantalla completa</a>
+        </div>
+      </div>
+      <div class="phone rv" id="live-phone">
+        <button class="cover-btn" id="live-btn" aria-label="Encender la demo dentro de la página">
+          <img src="img/inicio.png" alt="">
+          <span><i><svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M8 5.5v13l10.5-6.5z"/></svg></i>Encender la demo</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Cómo se hace y fases -->
+<section class="pad grey">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Cómo se hace</p>
+      <h2 class="h2 rv d1">La IA produce. <span class="grad-edu">El profesorado valida.</span></h2>
+    </div>
+    <div class="flow">
+      <div class="fl rv"><span class="ln"></span><small>PASO 1</small><h3>Temario</h3><p>Lo aporta el departamento.</p></div>
+      <div class="fl rv d1"><span class="ln"></span><small>PASO 2</small><h3>Producción con IA</h3><p>Textos, dibujos y código.</p></div>
+      <div class="fl rv d2"><span class="ln"></span><small>PASO 3</small><h3>Comprobación</h3><p>Contra la norma y con pruebas.</p></div>
+      <div class="fl rv d3"><span class="ln"></span><small>PASO 4</small><h3>Visto bueno</h3><p>Del profesorado, antes de abrirlo.</p></div>
+    </div>
+    <div class="center" style="margin-top:90px">
+      <p class="eyebrow rv">Qué pido</p>
+      <h2 class="h2 rv d1">Poco para empezar. <span class="grad-edu">Más solo si funciona.</span></h2>
+    </div>
+    <div class="phases">
+      <div class="ph rv"><span class="k">1</span><small>Este curso · 1 departamento</small><h3>Piloto: casi nada</h3><p>Fluidos y pocas asignaturas. Profesorado de referencia que dé el visto bueno a cada tema. Sin servidores ni gasto en equipos.</p></div>
+      <div class="ph rv d1"><span class="k">2</span><small>Después · Varios departamentos</small><h3>Otros departamentos</h3><p>El mismo modelo, ya probado. Un informático para orientar en seguridad, datos y cómo encajarlo en el centro.</p></div>
+      <div class="ph rv d2"><span class="k">3</span><small>Al final · Todo el centro</small><h3>Plataforma del centro</h3><p>Un acceso para todas las asignaturas y el avance del grupo, con servidores propios y protección de datos.</p></div>
+    </div>
+  </div>
+</section>
+<!-- Para llevar: la app, el vídeo y el informe en PDF, con sus QR -->
+<section class="pad grey" id="llevar">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Para llevar</p>
+      <h2 class="h2 rv d1">Llévatelo <span class="grad-edu">en el móvil.</span></h2>
+      <p class="sub rv d2">Escanea con el móvil o pulsa para abrir.</p>
+    </div>
+    <div class="doc take rv">
+      <span class="bti"><b>BTI</b><i class="edu">Education</i></span>
+      <div class="qrs three">
+        <a class="qr-card" href="https://erikhvacdev.github.io/repelega-demo/" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/repelega-demo/"></div><b>Prueba la app<small>En tu móvil, ahora</small></b></a>
+        <a class="qr-card" href="https://erikhvacdev.github.io/repelega-demo/video/" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/repelega-demo/video/"></div><b>Mira el vídeo<small>1 minuto</small></b></a>
+        <a class="qr-card" href="https://erikhvacdev.github.io/bti/informes/bti-education.pdf" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/bti/informes/bti-education.pdf"></div><b>El informe<small>En PDF</small></b></a>
+      </div>
+      <a class="dl" href="informes/bti-education.pdf" target="_blank" download><span><b>Descargar el informe para la dirección</b><small>PDF · 6 páginas</small></span><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="bti"><b>BTI</b><i class="sw">Software</i></span>
+  <p class="tag">Basque Tech Intelligence</p>
+  <p><b>Edgar Ruben Retamar</b> · 2.º DPITF · CIFP Repélega LHII</p>
+  <p><a class="mail" href="mailto:erik.repelega@gmail.com">erik.repelega@gmail.com</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

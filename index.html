@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTI Software</title>
+<meta name="description" content="BTI Software: BTI Education y BTI Pro. Propuestas, demos y vídeos.">
+<link rel="icon" href="img/robot.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="bti" aria-label="BTI Software"><b>BTI</b><i class="sw">Software</i></a>
+    <div class="links"><a href="education.html">Education</a><a href="pro.html">Pro</a><a href="filosofia.html">Filosofía</a></div>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+
+<main>
+<!-- 1 · Portada -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="mark"><span class="bti"><b>BTI</b><i class="sw">Software</i></span></div>
+    <p class="tag">Basque Tech Intelligence</p>
+    <h1 id="hero-title">Software para aprender. Y software para trabajar.</h1>
+    <div class="branches">
+      <a class="pill solid" href="education.html">BTI Education</a>
+      <a class="pill ghost" href="pro.html">BTI Pro</a>
+    </div>
+  </div>
+  <div class="fan" id="fan" aria-label="Capturas de las apps">
+    <div class="glow"></div>
+    <div class="phone" data-i="-1"><img src="img/test.jpg" alt="Test de la app de Fluidos"></div>
+    <div class="phone" data-i="1"><img src="img/tk-resultado.jpg" alt="Resultado de TermikAI"></div>
+    <div class="phone" data-i="0"><img src="img/teoria.jpg" alt="Teoría animada con Eki"></div>
+  </div>
+  <div class="scroll-hint"><span></span>Desliza</div>
+</header>
+
+<!-- 2 · La matriz y sus dos ramas -->
+<section class="pad grey">
+  <div class="wrap center">
+    <p class="eyebrow rv">Una empresa, dos ramas</p>
+    <h2 class="h2 rv d1">La misma tecnología. <span class="grad-edu">Dos formas de ayudar.</span></h2>
+    <p class="sub rv d2">Education quiere dar al centro algo de valor. Pro quiere ser rentable.</p>
+  </div>
+  <div class="wrap">
+    <div class="two">
+      <a class="branch rv" href="education.html">
+        <div class="text">
+          <span class="bti"><b>BTI</b><i class="edu">Education</i></span>
+          <h3>Estudiar mejor. Y poder demostrarlo.</h3>
+          <p>Una app de estudio para cada asignatura, en el móvil y en castellano y euskera. El primer piloto es Fluidos, en el CIFP Repélega.</p>
+          <span class="go">Ver la propuesta ›</span>
+        </div>
+        <img class="art" src="img/inicio.png" alt="">
+      </a>
+      <a class="branch dark rv d1" href="pro.html">
+        <div class="text">
+          <span class="bti"><b>BTI</b><i class="pro">Pro</i></span>
+          <h3>TermikAI. Frío y calor, calculados en la visita.</h3>
+          <p>La carga térmica de un local en dos minutos y un informe claro para el cliente. Ganó el concurso de apps con IA del centro.</p>
+          <span class="go">Ver TermikAI ›</span>
+        </div>
+        <img class="art" src="img/tk-inicio.jpg" alt="">
+      </a>
+    </div>
+  </div>
+</section>
+<!-- 3 · Accesos -->
+<section class="pad">
+  <div class="wrap center">
+    <p class="eyebrow rv">Empieza por aquí</p>
+    <h2 class="h2 rv d1">Tócalo. <span class="grad-edu">No solo lo leas.</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="tiles">
+      <a class="tile rv" href="education.html#eki"><img src="img/robot.svg" alt=""><span><b>Una lección con Eki</b><small>El cierre hidráulico, en un minuto</small></span><i>›</i></a>
+      <a class="tile rv d1" href="education.html"><svg viewBox="0 0 24 24"><path d="M3.5 6.5 12 3l8.5 3.5L12 10z"/><path d="M7 8.3V13c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V8.3M20.5 6.5V12"/></svg><span><b>La propuesta Education</b><small>Una app por asignatura</small></span><i>›</i></a>
+      <a class="tile rv d2" href="pro.html"><img class="shot" src="img/termikai-icono.svg" alt=""><span><b>TermikAI</b><small>Frío y calor en la visita</small></span><i>›</i></a>
+      <a class="tile rv d3" href="filosofia.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M9.5 19h5M10 22h4"/></svg><span><b>Nuestra filosofía</b><small>Y cómo contactarnos</small></span><i>›</i></a>
+    </div>
+  </div>
+</section>
+<!-- Contacto -->
+<section class="pad grey contact" id="contacto">
+  <div class="wrap center">
+    <p class="eyebrow rv">Contacto</p>
+    <h2 class="h2 rv d1">¿Hablamos? <span class="grad-edu">Te contestamos nosotros.</span></h2>
+    <p class="sub rv d2">Para probar la app en una asignatura, pedir una demo o cualquier pregunta sobre las propuestas.</p>
+    <div class="mailbox rv d3">
+      <span class="addr" id="mail-addr">erik.repelega@gmail.com</span>
+      <div class="mail-btns">
+        <a class="pill solid" href="mailto:erik.repelega@gmail.com?subject=BTI%20Software">Escribir un email</a>
+        <button class="pill ghost" id="mail-copy" type="button">Copiar</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="bti"><b>BTI</b><i class="sw">Software</i></span>
+  <p class="tag">Basque Tech Intelligence</p>
+  <p><b>Edgar Ruben Retamar</b> · 2.º DPITF · CIFP Repélega LHII</p>
+  <p><a class="mail" href="mailto:erik.repelega@gmail.com">erik.repelega@gmail.com</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
