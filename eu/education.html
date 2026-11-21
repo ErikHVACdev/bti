@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="eu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTI Education</title>
+<meta name="description" content="BTI Education: ikasketa-aplikazio bat irakasgai bakoitzeko. Pilotua CIFP Repélega LHIIn.">
+<link rel="icon" href="../img/robot.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../css/estilos.css">
+<link rel="alternate" hreflang="es" href="../education.html">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="bti" aria-label="BTI Software"><b>BTI</b><i class="sw">Software</i></a>
+    <div class="links"><a href="education.html" class="here">Education</a><a href="pro.html">Pro</a><a href="filosofia.html">Filosofia</a></div><a class="lang" href="../education.html" hreflang="es" lang="es" title="En castellano">ES</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+
+<main>
+<!-- 3 · BTI Education -->
+<section class="pad" id="education">
+  <div class="wrap center">
+    <p class="eyebrow rv"><span class="bti" style="font-size:18px;color:var(--ink)"><b>BTI</b><i class="edu">Education</i></span></p>
+    <h2 class="h2 rv d1">Aplikazio bat irakasgai bakoitzeko. <span class="grad-edu">Guztiak berdinak barrutik.</span></h2>
+    <p class="sub rv d2">Irakasgaia, ebaluazioa, gaia eta ikasgaiak. Oinarri beretik ateratzen da irakasgai berri bakoitza, eta ikasleek beti dakite non dauden.</p>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="stick">
+    <div class="wrap grid">
+      <div>
+        <div class="steps">
+          <div class="st on"><span class="k">IKASI</span><h3>Ekik azaltzen du <span class="grad-edu">urratsez urrats.</span></h3><ul><li>Mugitzen diren marrazkiak</li><li>Ekiren ahotsa</li><li>Apunteak eta araudia, argi</li></ul></div>
+          <div class="st"><span class="k">LANDU</span><h3>Akats bakoitza, <span class="grad-edu">azalduta.</span></h3><ul><li>Testak ikasgai bakoitzeko</li><li>Kalkulu gidatua, pistekin</li><li>Simulakroa, notarekin</li></ul></div>
+          <div class="st"><span class="k">JOLASTU</span><h3>Errepasatzeak ere <span class="grad-edu">harrapatzen du.</span></h3><ul><li>Gaiaren minijokoak</li><li>Matxuren tailerra</li><li>Errekorrak eta bolada</li></ul></div>
+        </div>
+        <div class="dots" id="story-dots"><i class="on"></i><i></i><i></i></div>
+      </div>
+      <div class="stage">
+        <div class="phone" id="story-phone">
+          <img class="on" src="../img/teoria.jpg" alt="Teoria">
+          <img src="../img/test.jpg" alt="Testa">
+          <img src="../img/juego.jpg" alt="Minijokoa">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Ikasgai interaktiboa Ekirekin -->
+<section class="pad grey" id="eki">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Probatu hemen</p>
+      <h2 class="h2 rv d1">Ekiren ikasgai bat, <span class="grad-edu">minutu batean.</span></h2>
+      <p class="sub rv d2">Zergatik ez du usainik hustubide batek? Sakatu Hurrengoa eta Ekik erakutsiko dizu.</p>
+    </div>
+    <div class="lesson rv">
+      <div class="board" id="board">
+        <svg viewBox="0 0 520 340" role="img" aria-label="Konketa, sifoia eta zorrotena">
+          <!-- Konketa -->
+          <path class="basin" d="M52 46 H210 Q206 96 131 100 Q56 96 52 46 Z"/>
+          <path d="M44 46 H218" stroke="#C9CED6" stroke-width="6" stroke-linecap="round"/>
+          <text x="2" y="84" class="label">Konketa</text>
+          <!-- Hodia: hustubidea, U sifoia eta adarra zorrotenera arte -->
+          <path class="pipe-o" d="M131 100 V215 Q131 252 163 252 Q195 252 195 215 V196 H410"/>
+          <path class="pipe-i" d="M131 100 V215 Q131 252 163 252 Q195 252 195 215 V196 H410"/>
+          <!-- Itxiturako ura -->
+          <path class="water" id="water" pathLength="1" d="M131 205 V215 Q131 252 163 252 Q195 252 195 215 V205"/>
+          <text x="40" y="262" class="label">Sifoia</text>
+          <!-- Zorrotena (izena hodiaren ezkerrean, luzeagoa delako) -->
+          <rect x="408" y="14" width="40" height="320" rx="6" fill="#fff" stroke="#C9CED6" stroke-width="4"/>
+          <text x="400" y="30" class="label" text-anchor="end">Zorrotena</text>
+          <!-- Aireztapen tertziarioa -->
+          <g class="vent" id="vent">
+            <path d="M260 196 V70 H408" fill="none" stroke="#C9CED6" stroke-width="20" stroke-linejoin="round"/>
+            <path d="M260 196 V70 H408" fill="none" stroke="#fff" stroke-width="13" stroke-linejoin="round"/>
+            <text x="272" y="60" class="label">Aireztapena</text>
+            <g class="air"><circle r="4" fill="#9ED0F5"><animateMotion dur="2.4s" repeatCount="indefinite" path="M400 70 H260 V190"/></circle>
+            <circle r="4" fill="#9ED0F5"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M400 70 H260 V190"/></circle></g>
+          </g>
+          <!-- Sareko gasak -->
+          <g id="gases"></g>
+          <g class="stop" id="stop"><circle cx="210" cy="172" r="13" fill="#1E9E5A"/><path d="M204 172 l4 4 l8 -9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g class="smell" id="smell">
+            <path d="M110 34 q-8 -8 0 -16 t0 -16 M131 34 q-8 -8 0 -16 t0 -16 M152 34 q-8 -8 0 -16 t0 -16" fill="none" stroke="#8C9A6B" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="confetti" id="confetti"></div>
+      </div>
+      <div class="coach">
+        <div class="eki-row">
+          <img class="eki" id="eki-img" src="../img/robot.svg" alt="Eki, maskota">
+          <div class="say" id="say" aria-live="polite"></div>
+        </div>
+        <div class="quiz" id="quiz" hidden></div>
+        <div class="ctrl">
+          <button class="btn sec" id="prev">Atzera</button>
+          <button class="btn" id="next">Hurrengoa</button>
+          <div class="ldots" id="ldots"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Zenbakiak eta demoa zuzenean -->
+<section class="pad">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Dagoeneko dabilena</p>
+      <h2 class="h2 rv d1">Gai erakusgarri bat, <span class="grad-edu">klaserako prest.</span></h2>
+      <p class="sub rv d2">Saneamendua, Fluidoak irakasgaikoa, CTE DB HS 5aren arabera.</p>
+    </div>
+    <div class="nums">
+      <div class="num grey rv"><span class="n" data-count="16">0</span><b>Fitxak</b><small>Animatuak eta ahotsarekin</small></div>
+      <div class="num grey rv d1"><span class="n" data-count="38">0</span><b>Galderak</b><small>Akats bakoitza, azalduta</small></div>
+      <div class="num grey rv d2"><span class="n" data-count="5">0</span><b>Ikasgaiak</b><small>Testarekin eta simulakroarekin</small></div>
+      <div class="num grey rv d3"><span class="n" data-count="2">0</span><b>Hizkuntzak</b><small>Gaztelania eta euskara</small></div>
+    </div>
+    <div class="live">
+      <div>
+        <h3 class="h2 rv" style="font-size:clamp(28px,4vw,40px)">Benetako aplikazioa, <span class="grad-edu">hementxe bertan.</span></h3>
+        <ul class="checks rv d1">
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ikasgai interaktiboak, ikasleek ikusten dituzten bezala</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Konexiorik gabe dabil, zerbitzaririk eta konturik gabe</li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Matxuren tailerra, minijokoak eta kalkulua pistekin</li>
+        </ul>
+        <div class="branches rv d2" style="justify-content:flex-start">
+          <a class="pill solid" href="https://erikhvacdev.github.io/repelega-demo/" target="_blank" rel="noopener">Ireki pantaila osoan</a>
+        </div>
+      </div>
+      <div class="phone rv" id="live-phone">
+        <button class="cover-btn" id="live-btn" aria-label="Piztu demoa orrian bertan">
+          <img src="../img/inicio.png" alt="">
+          <span><i><svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M8 5.5v13l10.5-6.5z"/></svg></i>Piztu demoa</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Nola egiten den eta faseak -->
+<section class="pad grey">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Nola egiten da</p>
+      <h2 class="h2 rv d1">IAk ekoizten du. <span class="grad-edu">Irakasleek balioztatzen dute.</span></h2>
+    </div>
+    <div class="flow">
+      <div class="fl rv"><span class="ln"></span><small>1. URRATSA</small><h3>Gaiak</h3><p>Sailak ematen ditu.</p></div>
+      <div class="fl rv d1"><span class="ln"></span><small>2. URRATSA</small><h3>IArekin ekoiztea</h3><p>Testuak, marrazkiak eta kodea.</p></div>
+      <div class="fl rv d2"><span class="ln"></span><small>3. URRATSA</small><h3>Egiaztapena</h3><p>Araudiarekin alderatuta eta probekin.</p></div>
+      <div class="fl rv d3"><span class="ln"></span><small>4. URRATSA</small><h3>Oniritzia</h3><p>Irakasleena, ireki aurretik.</p></div>
+    </div>
+    <div class="center" style="margin-top:90px">
+      <p class="eyebrow rv">Zer eskatzen dut</p>
+      <h2 class="h2 rv d1">Gutxi hasteko. <span class="grad-edu">Gehiago, funtzionatzen badu.</span></h2>
+    </div>
+    <div class="phases">
+      <div class="ph rv"><span class="k">1</span><small>Ikasturte honetan · Sail bat</small><h3>Pilotua: ia ezer ez</h3><p>Fluidoak eta irakasgai gutxi batzuk. Gai bakoitzari oniritzia emango dion erreferentziako irakaslea. Zerbitzaririk eta ekipo-gasturik gabe.</p></div>
+      <div class="ph rv d1"><span class="k">2</span><small>Gero · Hainbat sail</small><h3>Beste sail batzuk</h3><p>Eredu bera, dagoeneko probatuta. Informatikari bat, segurtasunean, datuetan eta ikastetxean nola txertatu orientatzeko.</p></div>
+      <div class="ph rv d2"><span class="k">3</span><small>Azkenean · Ikastetxe osoa</small><h3>Ikastetxearen plataforma</h3><p>Sarbide bakarra irakasgai guztietarako eta taldearen aurrerapenerako, zerbitzari propioekin eta datuen babesarekin.</p></div>
+    </div>
+  </div>
+</section>
+<!-- Eramateko: aplikazioaren eta bideoaren QRak, eta txostena PDFn -->
+<section class="pad grey" id="llevar">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv">Eramateko</p>
+      <h2 class="h2 rv d1">Eraman <span class="grad-edu">mugikorrean.</span></h2>
+      <p class="sub rv d2">Eskaneatu mugikorrarekin edo sakatu irekitzeko.</p>
+    </div>
+    <div class="doc take rv">
+      <span class="bti"><b>BTI</b><i class="edu">Education</i></span>
+      <div class="qrs">
+        <a class="qr-card" href="https://erikhvacdev.github.io/repelega-demo/" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/repelega-demo/"></div><b>Probatu aplikazioa<small>Zure mugikorrean, orain</small></b></a>
+        <a class="qr-card" href="https://erikhvacdev.github.io/repelega-demo/video/" target="_blank" rel="noopener"><div class="qr" data-qr="https://erikhvacdev.github.io/repelega-demo/video/"></div><b>Ikusi bideoa<small>Minutu bat</small></b></a>
+      </div>
+      <a class="dl" href="../informes/bti-education.pdf" target="_blank" download><span><b>Deskargatu zuzendaritzarako txostena</b><small>PDF · 6 orrialde · gaztelaniaz</small></span><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="bti"><b>BTI</b><i class="sw">Software</i></span>
+  <p class="tag">Basque Tech Intelligence</p>
+  <p><b>Edgar Ruben Retamar</b> · 2. DPITF · CIFP Repélega LHII</p>
+  <p><a class="mail" href="mailto:erik.repelega@gmail.com">erik.repelega@gmail.com</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

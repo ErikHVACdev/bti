@@ -32,15 +32,30 @@ section { position: relative; }
 .bti .pro { background: linear-gradient(90deg, var(--petrol2), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .dark .bti .pro { background-image: linear-gradient(90deg, #4FB0D6, #4DA3FF); }
 
-/* ---------- Barra ---------- */
-.nav { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 52px; display: flex; align-items: center; background: rgba(255,255,255,.72);
-  backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0,0,0,.06); transition: background .3s; }
-.nav.on-dark { background: rgba(11,19,32,.72); border-color: rgba(255,255,255,.08); color: #F5F5F7; }
+/* ---------- Barra (carbón, igual que el pie) ---------- */
+:root { --carbon: #1D1F23; }
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 50; height: 60px; display: flex; align-items: center; color: #F5F5F7;
+  background: rgba(29,31,35,.9); backdrop-filter: saturate(160%) blur(20px); -webkit-backdrop-filter: saturate(160%) blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.07); box-shadow: 0 8px 24px -16px rgba(0,0,0,.5); }
+.nav.on-dark { background: rgba(29,31,35,.9); }
 .nav .wrap { display: flex; align-items: center; gap: 22px; width: 100%; }
-.nav .bti { font-size: 19px; text-decoration: none; }
-.nav .links { margin-left: auto; display: flex; gap: 20px; font-size: 13px; }
-.nav .links a { text-decoration: none; opacity: .8; }
-.nav .links a.here { opacity: 1; font-weight: 600; } .nav .links a:hover { opacity: 1; }
+.nav .bti { font-size: 20px; text-decoration: none; color: #F5F5F7; }
+.nav .bti .sw, footer .bti .sw { background-image: linear-gradient(90deg, #4FB0D6, #8FD0EA); }
+.nav .links { margin-left: auto; display: flex; gap: 4px; font-size: 15px; font-weight: 500; }
+.nav .links a { position: relative; text-decoration: none; padding: 8px 14px; border-radius: 999px; color: rgba(245,245,247,.72);
+  transition: color .25s, background-color .25s; }
+/* Al pasar: fondo suave y una línea que crece desde el centro; la página actual la lleva siempre */
+.nav .links a::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 3px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, #4DA3FF, #8A88FF); transform: scaleX(0); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.nav .links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+.nav .links a:hover::after, .nav .links a.here::after { transform: scaleX(1); }
+.nav .links a.here { color: #fff; font-weight: 600; }
+.nav .links a:focus-visible, .nav .lang:focus-visible { outline: 2px solid #4DA3FF; outline-offset: 2px; }
+/* Cambio de idioma ES / EU (las páginas en euskera están en eu/) */
+.nav .lang { margin-left: 6px; font-size: 13px; font-weight: 600; letter-spacing: .05em; padding: 6px 12px; border-radius: 999px; text-decoration: none;
+  color: #F5F5F7; box-shadow: 0 0 0 1px rgba(255,255,255,.28) inset; transition: background-color .25s, color .25s, box-shadow .25s; }
+.nav .lang:hover { background: #F5F5F7; color: var(--carbon); box-shadow: 0 0 0 1px #F5F5F7 inset; }
+@media (prefers-reduced-motion: reduce) { .nav .links a, .nav .links a::after, .nav .lang { transition: none; } }
 .progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--petrol2), var(--blue), var(--indigo)); }
 @media (max-width: 620px) { .nav .links a.hide-sm { display: none; } }
 
@@ -213,8 +228,8 @@ section { position: relative; }
 .dl:hover { background: var(--grey); } .dl b { display: block; } .dl small { color: var(--soft); }
 .dl svg { width: 26px; height: 26px; stroke: var(--blue); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
-footer { padding: 60px 0 70px; text-align: center; color: var(--soft); font-size: 14px; }
-footer .bti { font-size: 26px; color: var(--ink); } footer .tag { letter-spacing: .3em; font-size: 11px; text-transform: uppercase; margin-top: 10px; }
+footer { padding: 64px 16px 72px; text-align: center; color: #A1A1A6; font-size: 14px; background: var(--carbon); border-top: 1px solid rgba(255,255,255,.06); }
+footer .bti { font-size: 26px; color: #F5F5F7; } footer b { color: #F5F5F7; } footer .tag { letter-spacing: .3em; font-size: 11px; text-transform: uppercase; margin-top: 10px; }
 footer p { margin-top: 18px; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -241,7 +256,9 @@ footer p { margin-top: 18px; }
   .fan { height: 118vw; margin-top: 36px; }
   .phone { width: 46vw; }
   .scroll-hint { display: none; }
-  .nav .links { gap: 14px; }
+  .nav .wrap { gap: 10px; } .nav .bti { font-size: 18px; }
+  .nav .links { gap: 0; font-size: 14px; } .nav .links a { padding: 7px 9px; } .nav .links a::after { left: 9px; right: 9px; }
+  .nav .lang { padding: 5px 9px; font-size: 12px; margin-left: 2px; }
   .lesson { padding: 12px; border-radius: 26px; margin-top: 32px; }
   .say { font-size: 16px; min-height: 120px; }
   .eki { width: 70px; }
@@ -290,7 +307,7 @@ footer p { margin-top: 18px; }
 .mailbox .addr { font-size: clamp(19px, 3.4vw, 28px); font-weight: 600; letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .mail-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .mail-btns button { font-family: var(--f); border: 0; cursor: pointer; }
-footer a.mail { color: var(--blue); text-decoration: none; }
+footer a.mail { color: #4DA3FF; text-decoration: none; transition: color .2s; } footer a.mail:hover { color: #8A88FF; }
 @media (max-width: 600px) {
   .mani { height: 220vh; }
   .mailbox { padding: 22px 18px; border-radius: 24px; }

@@ -2,6 +2,10 @@
 const $ = id => document.getElementById(id);
 const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+/* Idioma: las páginas de eu/ llevan <html lang="eu"> y cargan los recursos desde la carpeta de arriba */
+const EU = document.documentElement.lang === 'eu';
+const T = (es, eu) => EU ? eu : es;
+const ROOT = EU ? '../' : '';
 
 /* Título de la portada: palabra a palabra */
 const ht = $('hero-title');
@@ -62,7 +66,7 @@ function paintNav() {
 }
 /* Manifiesto de la filosofía: las palabras se encienden según lo bajado */
 const mani = $('mani'), mt = $('mani-text');
-const KEYS = ['entender,', 'porqué.', 'bolsillo.', 'persona.'];
+const KEYS = EU ? ['ulertzeko,', 'zergatia', 'poltsikoan', 'pertsona'] : ['entender,', 'porqué.', 'bolsillo.', 'persona.'];
 const mws = mt ? (mt.innerHTML = mt.textContent.trim().split(/\s+/).map(w => `<span class="w${KEYS.includes(w) ? ' key' : ''}">${w}</span>`).join(' '), [...mt.children]) : [];
 function paintMani() {
   if (!mani) return;
@@ -79,7 +83,7 @@ if (film) new IntersectionObserver((es, o) => {
   if (!es[0].isIntersecting) return; o.disconnect();
   const fr = $('film-frame'), ss = innerWidth < 700 ? 0.6 : Math.min(1.25, devicePixelRatio || 1);
   fr.onload = () => { const cw = fr.contentWindow; Promise.resolve(cw.READY).then(() => { cw.render(FILM_T0); fw = cw; film.classList.add('ready'); }); };
-  fr.src = `3d/escena.html?t=0&ss=${ss}&web`;
+  fr.src = `${ROOT}3d/escena.html?t=0&ss=${ss}&web`;
 }, { rootMargin: '150% 0px' }).observe(film);
 function paintFilm() {
   if (!film) return;
@@ -155,14 +159,21 @@ document.querySelectorAll('.branch, .pr').forEach(b => b.addEventListener('point
 const liveBtn = $('live-btn');
 if (liveBtn) liveBtn.addEventListener('click', () => {
   const f = document.createElement('iframe');
-  f.src = 'https://erikhvacdev.github.io/repelega-demo/'; f.title = 'Demo de la app de Fluidos'; f.allow = 'autoplay';
+  f.src = 'https://erikhvacdev.github.io/repelega-demo/'; f.title = T('Demo de la app de Fluidos', 'Fluidoak aplikazioaren demoa'); f.allow = 'autoplay';
   liveBtn.replaceWith(f);
 });
 
 /* ---------- Lección de Eki: el cierre hidráulico (datos ya comprobados en la demo, CTE DB HS 5) ---------- */
 if ($('board')) {
   const G = { block: 'M428 330 V196 H205', leak: 'M428 330 V196 H195 V215 Q195 252 163 252 Q131 252 131 215 V60', none: '' };
-  const SCENES = [
+  const SCENES = EU ? [
+    { say: '<b>Kaixo! Eki naiz.</b> Hau konketa bat da, bere sifoia eta eraikinaren zorrotena. Zergatik ez du estolda-usainik?', water: false, gas: 'none' },
+    { say: 'Konketa erabiltzen duzun bakoitzean, ur pixka bat geratzen da sifoiaren kurban. Hori da <b>itxitura hidraulikoa</b>.', water: true, gas: 'none' },
+    { say: 'Sareko gasak zorrotenetik gora igotzen dira… eta urak <b>bidea ixten die</b>. Horregatik ez du usainik.', water: true, gas: 'block', stop: true },
+    { say: 'Baina hodia urez beteta jaisten bada, atzean geratzen dena eramaten du eta itxitura hustu egiten da. Hori da <b>sifonatzea</b>. Urik gabe, usaina dago!', water: false, gas: 'leak', smell: true },
+    { say: 'Irtenbidea: sifoiaren ondoren airea sartzen uztea. Hori da <b>aireztapen tertziarioa</b>. Itxiturak bere ura gordetzen du.', water: true, gas: 'block', stop: true, vent: true },
+    { say: 'Azken galdera. Konketak eta harraskak, zorrotenetik <b>gehienez</b> zer distantziara egon daitezke?', water: true, gas: 'block', vent: true, quiz: true },
+  ] : [
     { say: '<b>¡Kaixo! Soy Eki.</b> Esto es un lavabo, su sifón y la bajante del edificio. ¿Por qué no huele a alcantarilla?', water: false, gas: 'none' },
     { say: 'Cada vez que usas el lavabo, un poco de agua se queda en la curva del sifón. Es el <b>cierre hidráulico</b>.', water: true, gas: 'none' },
     { say: 'Los gases de la red suben por la bajante… y el agua les <b>cierra el paso</b>. Por eso no huele.', water: true, gas: 'block', stop: true },
@@ -215,11 +226,11 @@ if ($('board')) {
   const answer = b => {
     if (QUIZ[+b.dataset.k][1]) {
       b.classList.add('ok'); $('quiz').querySelectorAll('.opt').forEach(o => o.disabled = true);
-      type('<b>¡Eso es! 4,00 m.</b> Más lejos, el sifonado se nota más y el cierre se vacía. Así es cada lección de la app.');
+      type(T('<b>¡Eso es! 4,00 m.</b> Más lejos, el sifonado se nota más y el cierre se vacía. Así es cada lección de la app.', '<b>Hori da! 4,00 m.</b> Urrunago, sifonatzea nabarmenago da eta itxitura hustu egiten da. Horrelakoa da aplikazioko ikasgai bakoitza.'));
       confetti();
     } else {
       b.classList.add('ko'); b.disabled = true;
-      type(b.textContent.startsWith('2') ? 'Casi: 2,00 m es lo que puede estar el <b>bote sifónico</b>. Para lavabos y fregaderos hay algo más de margen.' : 'Demasiado lejos: el sifonado vaciaría el cierre. Prueba con menos.');
+      type(b.textContent.startsWith('2') ? T('Casi: 2,00 m es lo que puede estar el <b>bote sifónico</b>. Para lavabos y fregaderos hay algo más de margen.', 'Ia: 2,00 m da <b>sifoi-potoaren</b> distantzia. Konketa eta harraskentzat tarte handiagoa dago.') : T('Demasiado lejos: el sifonado vaciaría el cierre. Prueba con menos.', 'Urrunegi: sifonatzeak itxitura hustuko luke. Saiatu gutxiagorekin.'));
     }
   };
   const show = i => {
@@ -233,7 +244,7 @@ if ($('board')) {
     const e = $('eki-img'); e.classList.remove('talk'); void e.offsetWidth; e.classList.add('talk');
     [...ld.children].forEach((d, k) => d.classList.toggle('on', k === i));
     $('prev').disabled = i === 0;
-    $('next').textContent = i === SCENES.length - 1 ? 'Empezar otra vez' : 'Siguiente';
+    $('next').textContent = i === SCENES.length - 1 ? T('Empezar otra vez', 'Berriro hasi') : T('Siguiente', 'Hurrengoa');
     const q = $('quiz'); q.hidden = !s.quiz;
     if (s.quiz) {
       q.innerHTML = QUIZ.map(([t], k) => `<button class="btn opt" data-k="${k}">${t}</button>`).join('');
@@ -255,7 +266,7 @@ if (window.QRCode) document.querySelectorAll('[data-qr]').forEach(el => {
 /* Contacto: copiar el email */
 const mc = $('mail-copy');
 if (mc) mc.addEventListener('click', async () => {
-  try { await navigator.clipboard.writeText($('mail-addr').textContent); mc.textContent = 'Copiado ✓'; }
-  catch (e) { getSelection().selectAllChildren($('mail-addr')); mc.textContent = 'Seleccionado'; }
-  setTimeout(() => mc.textContent = 'Copiar', 2000);
+  try { await navigator.clipboard.writeText($('mail-addr').textContent); mc.textContent = T('Copiado ✓', 'Kopiatuta ✓'); }
+  catch (e) { getSelection().selectAllChildren($('mail-addr')); mc.textContent = T('Seleccionado', 'Hautatuta'); }
+  setTimeout(() => mc.textContent = T('Copiar', 'Kopiatu'), 2000);
 });
