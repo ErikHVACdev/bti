@@ -127,7 +127,7 @@ function paintName() {
   const p = calm || span < innerHeight * .3 ? 1 : clamp(-r.top / span);
   acro.forEach((d, k) => d.style.setProperty('--p', clamp((p - .08 - k * .24) / .3).toFixed(3)));
 }
-/* Recorrido de las seis ideas: la línea se rellena hasta el 60 % de la pantalla y enciende cada número */
+/* Recorrido de las siete ideas: la línea se rellena hasta el 60 % de la pantalla y enciende cada número */
 const route = $('route'), rfill = $('route-fill'), ideas = route ? [...route.querySelectorAll('.idea')] : [];
 function paintRoute() {
   if (!route) return;

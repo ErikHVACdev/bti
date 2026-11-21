@@ -296,11 +296,6 @@ footer p { margin-top: 18px; }
 .pr small { display: block; margin-top: 18px; font-size: 12px; font-weight: 700; color: var(--soft); letter-spacing: .1em; }
 .pr h3 { font-size: 24px; letter-spacing: -0.02em; line-height: 1.15; margin-top: 4px; }
 .pr p { color: var(--soft); margin-top: 8px; }
-.acro { display: grid; gap: 28px; margin-top: 36px; }
-@media (min-width: 800px) { .acro { grid-template-columns: repeat(3, 1fr); } }
-.acro b { font-size: clamp(64px, 10vw, 120px); font-weight: 800; letter-spacing: -0.05em; line-height: 1; background: linear-gradient(90deg, #4FB0D6, #4DA3FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.acro span { font-size: clamp(28px, 4vw, 44px); font-weight: 300; letter-spacing: -0.03em; }
-.acro small { display: block; margin-top: 8px; color: #A1A1A6; font-size: 17px; }
 
 /* ---------- Contacto ---------- */
 .mailbox { display: inline-grid; gap: 18px; justify-items: center; margin-top: 36px; padding: 28px 32px; border-radius: 30px; background: #fff; max-width: 100%; }
@@ -379,11 +374,34 @@ footer a.mail { color: #4DA3FF; text-decoration: none; transition: color .2s; } 
 .name { height: 260vh; padding: 0; }
 .name .stick { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; }
 .name .stick .wrap { width: 100%; }
+/* El nombre: tres tarjetas de cristal oscuro; --p (0→1, main.js) las enciende una a una */
+.nm-title { margin-top: 6px; }
+.acro { display: grid; gap: 20px; margin-top: 48px; text-align: left; }
+@media (min-width: 800px) { .acro { grid-template-columns: repeat(3, 1fr); } }
 .acro > div { --p: 0; }
-.acro b { display: inline-block; opacity: calc(.3 + .7 * var(--p)); transform: scale(calc(1.15 - .15 * var(--p))); transform-origin: 100% 80%; }
-.acro span { display: inline-block; clip-path: inset(-.2em calc((1 - var(--p)) * 100%) -.2em 0); opacity: var(--p); transform: translateX(calc((1 - var(--p)) * -.4em)); }
-.acro small { opacity: clamp(0, calc(var(--p) * 2 - 1), 1); transform: translateY(calc((1 - var(--p)) * 14px)); }
-@media (max-width: 799px) { .acro { gap: 18px; } .acro small { margin-top: 2px; } }
+.nm { position: relative; overflow: hidden; padding: 30px 28px 32px; border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.015));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,calc(.07 + .1 * var(--p))), inset 0 1px 0 rgba(255,255,255,.1), 0 40px 80px -40px rgba(0,0,0,.7);
+  opacity: calc(.35 + .65 * var(--p)); transform: translateY(calc((1 - var(--p)) * 28px)); }
+.nm::before { content: ''; position: absolute; inset: -40% 30% 40% -30%; background: radial-gradient(closest-side, rgba(77,163,255,.28), transparent); opacity: var(--p); pointer-events: none; }
+.nm::after { content: ''; position: absolute; left: 28px; right: 28px; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(143,208,234,.9), transparent); transform: scaleX(var(--p)); }
+.nm .k { position: relative; display: block; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #8FD0EA; }
+.nm b { position: relative; display: block; margin-top: 18px; font-size: clamp(84px, 9vw, 120px); font-weight: 800; letter-spacing: -0.05em; line-height: .9;
+  background: linear-gradient(160deg, #F5F5F7 10%, #8FD0EA 55%, #4DA3FF); -webkit-background-clip: text; background-clip: text; color: transparent;
+  transform: scale(calc(.92 + .08 * var(--p))); transform-origin: 0 100%; }
+.nm h3 { position: relative; margin-top: 14px; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; color: #F5F5F7; }
+.nm .hl { position: relative; display: block; height: 1px; margin: 18px 0 16px; background: rgba(255,255,255,.12); }
+.nm .hl::after { content: ''; position: absolute; inset: 0 auto 0 0; width: calc(var(--p) * 48px); height: 2px; top: -.5px; border-radius: 2px; background: linear-gradient(90deg, #4DA3FF, #8A88FF); }
+.nm small { position: relative; display: block; font-size: 16px; line-height: 1.45; color: #A1A1A6; opacity: clamp(0, calc(var(--p) * 2 - .6), 1); }
+@media (max-width: 799px) {
+  .acro { gap: 14px; margin-top: 32px; }
+  .nm { display: grid; grid-template-columns: 64px 1fr; column-gap: 16px; padding: 20px 20px 22px; border-radius: 20px; }
+  .nm .k { grid-column: 1 / -1; }
+  .nm b { grid-column: 1; grid-row: 2 / 5; margin-top: 10px; font-size: 64px; align-self: start; }
+  .nm h3 { grid-column: 2; margin-top: 12px; font-size: 21px; }
+  .nm .hl { grid-column: 2; margin: 10px 0 8px; }
+  .nm small { grid-column: 2; font-size: 15px; }
+}
 @media (max-height: 560px) { .name { height: auto; } .name .stick { position: static; height: auto; padding: 90px 0; } .acro > div { --p: 1 !important; } }
 @media (prefers-reduced-motion: reduce) {
   #phil-title .w, .mani-text .w { opacity: 1; filter: none; transform: none; }
@@ -474,6 +492,16 @@ footer a.mail { color: #4DA3FF; text-decoration: none; transition: color .2s; } 
 .idea.in .v-ring .arc, .idea.in .v-ring .tick { stroke-dashoffset: 0; }
 .v-ring .cap { position: absolute; bottom: -4px; font-size: 13px; font-weight: 600; color: var(--soft); opacity: 0; transition: opacity .6s 2.3s; }
 .idea.in .v-ring .cap { opacity: 1; }
+/* 7 · Tamaño justo: la barra «a ojo» se llena entera y la calculada se queda en su sitio */
+.v-size .rows { display: grid; gap: 16px; margin-top: -18px; }
+.v-size .row { display: grid; grid-template-columns: 80px 150px; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--soft); }
+.v-size .bar { position: relative; height: 14px; border-radius: 7px; background: var(--line); overflow: hidden; }
+.v-size .bar i { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 7px; transition: width 1.4s .4s cubic-bezier(.2,.7,.2,1); }
+.v-size .big i { background: #A1A1A6; } .v-size .fit i { background: linear-gradient(90deg, #1E9E5A, #34C77B); }
+.idea.in .v-size .big i { width: 100%; } .idea.in .v-size .fit i { width: 62%; transition-delay: 1.3s; }
+.v-size .cap { position: absolute; bottom: 6px; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #1E9E5A; opacity: 0; transition: opacity .6s 2.4s; }
+.v-size .cap svg { width: 16px; height: 16px; stroke: #1E9E5A; stroke-width: 2; }
+.idea.in .v-size .cap { opacity: 1; }
 
 /* Móvil: la línea a la izquierda; texto y dibujo junto a cada número */
 @media (max-width: 760px) {
