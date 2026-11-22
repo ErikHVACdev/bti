@@ -277,6 +277,8 @@ footer p { margin-top: 18px; }
 }
 
 /* ---------- Filosofía ---------- */
+/* Primer bloque de Education y Pro: mismo aire bajo la barra que Filosofía (en el móvil .pad se queda en 64px y la barra se come casi todo) */
+.pad.top { padding-top: clamp(120px, 16vw, 180px); }
 .phil-top { padding-top: clamp(120px, 16vw, 180px); padding-bottom: 0; }
 .phil-top .h2 { font-size: clamp(40px, 8vw, 84px); }
 /* Manifiesto fijo: cada palabra se enciende según lo bajado (main.js) */
