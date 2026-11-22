@@ -527,3 +527,8 @@ footer a.mail { color: #4DA3FF; text-decoration: none; transition: color .2s; } 
 .to-top:hover svg { transform: translateY(-2px); }
 @media (max-width: 600px) { .to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; } }
 @media (prefers-reduced-motion: reduce) { .to-top, .to-top svg { transition: none; } }
+
+/* Cajas blancas sobre fondo gris claro: contorno fino y sombra suave para que se vea el borde */
+.grey :is(.branch:not(.dark), .num:not(.grey), .doc, .mailbox, .lesson, .pr) {
+  box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04), 0 14px 34px -18px rgba(0,0,0,.22);
+}
