@@ -26,7 +26,7 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   const n = e.target.querySelector('[data-count]');
   if (n) countUp(n);
 }), { threshold: .12 });
-document.querySelectorAll('.rv, .fl').forEach(el => io.observe(el));
+document.querySelectorAll('.rv, .fl, .obs').forEach(el => io.observe(el));
 
 /* Abanico de móviles de la portada: se abre al bajar y sigue un poco al ratón (en el móvil, solo con el desplazamiento) */
 const fan = [...document.querySelectorAll('#fan .phone')];

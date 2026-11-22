@@ -534,3 +534,105 @@ footer a.mail { color: #4DA3FF; text-decoration: none; transition: color .2s; } 
 .grey :is(.branch:not(.dark), .num:not(.grey), .doc, .mailbox, .lesson, .pr) {
   box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04), 0 14px 34px -18px rgba(0,0,0,.22);
 }
+
+/* «Qué pido» (camino de tres estaciones) y «Hasta dónde puede crecer» (cuatro escenas) en education.html, 22/11/2026.
+   Se activan con .obs → .in desde main.js; las escenas solo se mueven con su tarjeta en pantalla. */
+.gi { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ---------- Fases: camino con tres estaciones ---------- */
+.road { position: relative; display: grid; gap: 0; margin-top: 56px; }
+@media (min-width: 900px) { .road { grid-template-columns: 1fr 70px 1fr 70px 1fr; align-items: stretch; } }
+.stn { background: #fff; border-radius: 28px; padding: 26px 24px 24px; box-shadow: 0 0 0 1px var(--line) inset, 0 18px 40px -28px rgba(16,24,40,.35); text-align: center; }
+.stn .k { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; font-size: 14px; }
+.stn h3 { font-size: 22px; letter-spacing: -.02em; margin-top: 10px; }
+.stn .when { font-size: 13px; color: var(--soft); margin-top: 2px; }
+/* Mapa del centro: 12 aulas que se encienden según la fase */
+.campus { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; width: 168px; margin: 20px auto 6px; }
+.campus i { aspect-ratio: 1; border-radius: 8px; background: #E9E9EE; transition: background .5s, transform .5s, box-shadow .5s; }
+.stn.in .campus i.on { background: linear-gradient(145deg, var(--blue), var(--indigo)); box-shadow: 0 6px 14px -8px var(--indigo); transform: scale(1.04); }
+.campus i:nth-child(1) { transition-delay: .3s } .campus i:nth-child(2) { transition-delay: .4s } .campus i:nth-child(3) { transition-delay: .5s }
+.campus i:nth-child(4) { transition-delay: .6s } .campus i:nth-child(5) { transition-delay: .7s } .campus i:nth-child(6) { transition-delay: .8s }
+.campus i:nth-child(7) { transition-delay: .9s } .campus i:nth-child(8) { transition-delay: 1s } .campus i:nth-child(9) { transition-delay: 1.1s }
+.campus i:nth-child(10) { transition-delay: 1.2s } .campus i:nth-child(11) { transition-delay: 1.3s } .campus i:nth-child(12) { transition-delay: 1.4s }
+.scope { font-size: 14px; font-weight: 600; color: var(--blue); }
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 18px; text-align: left; }
+.rc { display: flex; align-items: center; gap: 8px; background: var(--grey); border-radius: 14px; padding: 10px 10px; font-size: 13.5px; font-weight: 500; line-height: 1.25;
+  opacity: 0; transform: translateY(10px); transition: opacity .5s, transform .5s; }
+.rc .gi { color: var(--indigo); width: 18px; height: 18px; }
+.stn.in .rc { opacity: 1; transform: none; }
+.stn.in .rc:nth-child(1) { transition-delay: .6s } .stn.in .rc:nth-child(2) { transition-delay: .75s }
+.stn.in .rc:nth-child(3) { transition-delay: .9s } .stn.in .rc:nth-child(4) { transition-delay: 1.05s }
+/* Puerta entre fases: el candado se abre */
+.gate { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px 0; position: relative; }
+.gate::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; border-radius: 2px; background: linear-gradient(180deg, var(--blue), var(--indigo)); transform: scaleY(0); transform-origin: top; transition: transform .8s .2s; }
+@media (min-width: 900px) { .gate::before { left: 0; right: 0; top: 50%; bottom: auto; width: auto; height: 3px; margin: -1.5px 0 0; transform: scaleX(0); transform-origin: left; } }
+.gate.in::before { transform: none; }
+.lock { position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 0 0 1px var(--line), 0 8px 20px -10px rgba(16,24,40,.4); color: var(--soft); transition: color .4s 1s, background .4s 1s; }
+.lock .sh { transition: transform .5s 1s; transform-origin: 16px 10px; }
+.gate.in .lock { color: #fff; background: var(--blue); }
+.gate.in .lock .sh { transform: translate(5px,-2px) rotate(25deg); }
+.gate small { position: relative; z-index: 1; background: var(--grey); padding: 2px 8px; border-radius: 99px; font-size: 12.5px; font-weight: 600; color: var(--soft); text-align: center; max-width: 140px; line-height: 1.3; }
+@media (min-width: 900px) { .gate small { font-size: 11.5px; max-width: 70px; background: none; padding: 0; } }
+
+/* ---------- Crecimiento: cuatro escenas animadas ---------- */
+.grow { display: grid; gap: 16px; margin-top: 48px; }
+@media (min-width: 800px) { .grow { grid-template-columns: repeat(2, 1fr); } }
+.gw { background: #fff; border-radius: 28px; overflow: hidden; box-shadow: 0 0 0 1px var(--line) inset, 0 18px 40px -28px rgba(16,24,40,.35); }
+.scene { height: 170px; background: var(--grey); position: relative; display: grid; place-items: center; overflow: hidden; }
+.gw .gtx { padding: 18px 22px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.gw h3 { font-size: 19px; letter-spacing: -.02em; } .gw p { color: var(--soft); font-size: 14px; margin-top: 2px; }
+.av { flex: none; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 99px; white-space: nowrap; }
+.av.now { background: #E8F0FE; color: var(--blue); }
+.av.later { background: var(--grey); color: var(--soft); box-shadow: 0 0 0 1px var(--line) inset; }
+.anim { animation-play-state: paused !important; }
+.gw.in .anim { animation-play-state: running !important; }
+
+/* Quiz: cinco sellos que se ganan alrededor de la pregunta */
+.quiz-s { position: relative; width: 150px; height: 150px; }
+.quiz-s .q { position: absolute; inset: 45px; border-radius: 50%; background: #fff; display: grid; place-items: center; font-size: 30px; font-weight: 800; color: var(--indigo); box-shadow: 0 8px 20px -10px rgba(16,24,40,.4); animation: qpulse 2s ease-in-out infinite; }
+.quiz-s .s { position: absolute; width: 34px; height: 34px; margin: -17px; border-radius: 11px; background: #fff; box-shadow: 0 0 0 1px var(--line); display: grid; place-items: center; color: #C7C7CC; animation: stamp 7.5s infinite; }
+.quiz-s .s .gi { width: 18px; height: 18px; }
+@keyframes stamp { 0%, 8% { background: #fff; color: #C7C7CC; transform: scale(1); } 14% { transform: scale(1.25); } 20%, 88% { background: linear-gradient(145deg, var(--blue), var(--indigo)); color: #fff; transform: scale(1); } 100% { background: #fff; color: #C7C7CC; } }
+@keyframes qpulse { 50% { transform: scale(1.08); } }
+
+/* Carrera: dos tuberías, el agua avanza y una fuga frena a un equipo */
+.race { width: 86%; display: grid; gap: 22px; }
+.lane { display: flex; align-items: center; gap: 10px; }
+.lane b { font-size: 12px; width: 18px; color: var(--soft); }
+.pipe { flex: 1; height: 16px; border-radius: 8px; background: #fff; box-shadow: 0 0 0 2px #D2D2D7 inset; position: relative; }
+.wtr { position: absolute; left: 2px; top: 2px; bottom: 2px; border-radius: 6px; background: linear-gradient(90deg, #4DA3FF, var(--blue)); width: 0; }
+.lane.a .wtr { animation: fillA 6s infinite; } .lane.b .wtr { animation: fillB 6s infinite; background: linear-gradient(90deg, #8A88FF, var(--indigo)); }
+@keyframes fillA { 0% { width: 0 } 25% { width: 30% } 45% { width: 46% } 70% { width: 75% } 85%, 100% { width: calc(100% - 4px) } }
+@keyframes fillB { 0% { width: 0 } 25% { width: 38% } 45% { width: 40% } 70% { width: 58% } 85%, 100% { width: 72% } }
+.drop { position: absolute; left: 40%; top: 14px; width: 7px; height: 9px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: var(--indigo); opacity: 0; animation: drip 6s infinite; }
+@keyframes drip { 0%, 30% { opacity: 0; transform: translateY(0) } 34% { opacity: 1 } 46% { opacity: 0; transform: translateY(26px) } 100% { opacity: 0 } }
+.tap { width: 22px; height: 22px; color: var(--soft); }
+.flag { position: absolute; right: 7%; top: 18px; font-size: 12px; font-weight: 700; color: var(--blue); opacity: 0; animation: win 6s infinite; }
+@keyframes win { 0%, 82% { opacity: 0; transform: translateY(6px) } 88%, 100% { opacity: 1; transform: none } }
+
+/* Aventura: el personaje recorre las zonas del mapa */
+.map { width: 88%; height: 120px; }
+.map .path { fill: none; stroke: #C7C7CC; stroke-width: 3; stroke-dasharray: 2 9; stroke-linecap: round; }
+.map .done { fill: none; stroke: url(#gq); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 400; stroke-dashoffset: 400; animation: trail 7s infinite; }
+@keyframes trail { 0% { stroke-dashoffset: 400 } 80%, 100% { stroke-dashoffset: 0 } }
+.map .zone { fill: #fff; stroke: #D2D2D7; stroke-width: 2; }
+.map .zone.z2 { animation: zone 7s infinite 1.7s; } .map .zone.z3 { animation: zone 7s infinite 3.6s; } .map .zone.z4 { animation: zone 7s infinite 5.4s; }
+.map .zone.z1 { fill: var(--blue); stroke: var(--blue); }
+@keyframes zone { 0% { fill: #fff; stroke: #D2D2D7 } 5%, 100% { fill: var(--indigo); stroke: var(--indigo) } }
+.map text { font: 700 11px Inter, sans-serif; fill: var(--soft); text-anchor: middle; }
+
+/* Concursos: los móviles de la clase responden al proyector */
+.lv { position: relative; width: 240px; height: 140px; }
+.lv .scr { position: absolute; left: 70px; top: 6px; width: 100px; height: 62px; border-radius: 8px; background: var(--ink); display: flex; align-items: flex-end; justify-content: center; gap: 6px; padding: 0 0 10px; }
+.lv .scr i { width: 12px; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, #4DA3FF, var(--blue)); animation: rank 4s infinite; }
+.lv .scr i:nth-child(2) { animation-delay: .3s; background: linear-gradient(180deg, #8A88FF, var(--indigo)); } .lv .scr i:nth-child(3) { animation-delay: .6s; }
+@keyframes rank { 0% { height: 6px } 40% { height: 34px } 60% { height: 26px } 100% { height: 6px } }
+.lv .mob { position: absolute; bottom: 4px; width: 22px; height: 38px; border-radius: 6px; background: #fff; box-shadow: 0 0 0 2px var(--ink) inset; }
+.lv .mob::after { content: ""; position: absolute; inset: 8px 5px; border-radius: 3px; background: #E9E9EE; animation: tapA 2.4s infinite; }
+.lv .mob:nth-of-type(2)::after { animation-delay: .4s } .lv .mob:nth-of-type(3)::after { animation-delay: .8s } .lv .mob:nth-of-type(4)::after { animation-delay: 1.2s } .lv .mob:nth-of-type(5)::after { animation-delay: 1.6s }
+@keyframes tapA { 0%, 70%, 100% { background: #E9E9EE } 10%, 30% { background: var(--blue) } }
+.lv svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lv svg path { fill: none; stroke: var(--indigo); stroke-width: 1.6; stroke-dasharray: 4 6; opacity: .5; animation: flow 1.2s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -20 } }
+
+@media (prefers-reduced-motion: reduce) { .anim, .quiz-s .q { animation: none !important; } }
