@@ -39,8 +39,11 @@ function paintFan() {
   const open = (.35 + p * .65) * (narrow ? .8 : 1);
   fan.forEach(ph => {
     const i = +ph.dataset.i;
-    const x = i * 62 * open, y = Math.abs(i) * (40 - 26 * p) - p * 40, r = i * 9 * open, s = i ? .86 : 1 + p * .04;
-    ph.style.transform = `translateX(calc(-50% + ${x}%)) translateY(${y}px) rotateZ(${r}deg) rotateY(${mx * 14 - i * 6 * open}deg) rotateX(${-my * 8}deg) scale(${s})`;
+    const x = i * 62 * open, y = Math.abs(i) * (40 - 26 * p) - p * 40, r = i * 9 * open;
+    // Safari (iPhone) ordena por profundidad real e ignora z-index: el central va 60px por delante para que los laterales,
+    // girados en Y, no lo atraviesen; su escala se reduce para que la perspectiva (1400px) no lo agrande
+    const z = i ? 0 : 60, s = i ? .86 : (1 + p * .04) * (1400 - z) / 1400;
+    ph.style.transform = `translateX(calc(-50% + ${x}%)) translateY(${y}px) translateZ(${z}px) rotateZ(${r}deg) rotateY(${mx * 14 - i * 6 * open}deg) rotateX(${-my * 8}deg) scale(${s})`;
     ph.style.zIndex = i ? 1 : 2;
   });
 }
