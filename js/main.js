@@ -270,3 +270,12 @@ if (mc) mc.addEventListener('click', async () => {
   catch (e) { getSelection().selectAllChildren($('mail-addr')); mc.textContent = T('Seleccionado', 'Hautatuta'); }
   setTimeout(() => mc.textContent = T('Copiar', 'Kopiatu'), 2000);
 });
+
+/* Volver arriba: botón abajo a la derecha que aparece al llegar al final de la página */
+const up = document.createElement('button');
+up.type = 'button'; up.className = 'to-top'; up.setAttribute('aria-label', T('Volver arriba', 'Gora itzuli'));
+up.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>';
+document.body.appendChild(up);
+up.addEventListener('click', () => scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' }));
+const paintUp = () => up.classList.toggle('on', scrollY > innerHeight && innerHeight + scrollY >= document.documentElement.scrollHeight - innerHeight * .6);
+addEventListener('scroll', paintUp, { passive: true }); addEventListener('resize', paintUp); paintUp();
